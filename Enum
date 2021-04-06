@@ -33,6 +33,7 @@ smbclient -L <targetip>
 # Check SMB vulnerabilities:
 nmap --script=smb-check-vulns.nse <targetip> -p445
 
+
 # basic nmap scripts to enumerate shares and OS discovery
 nmap -p 139,445 192.168.1.1/24 --script smb-enum-shares.nse smb-os-discovery.nse
 
@@ -99,3 +100,14 @@ nmap --script nfs-showmount.nse <targetip>
 # mount the share to a folder under /tmp
 mkdir /tmp/nfs
 /sbin/mount.nfs <targetip>:/home/box /tmp/nfs
+--------------------------
+Wpscan
+
+# enum to find running WordPress
+wpscan –url [wordpress url]
+
+# to find users
+wpscan –url [wordpress url]–enumerate u
+
+# password Bruteforce
+wpscan –url [wordpress url]–wordlist [path to wordlist]–username [username to brute force]–threads [number of threads to use]
