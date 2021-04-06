@@ -6,6 +6,9 @@ nmap -sn 10.0.0.0/24
 # scan the 1024 most common ports, run OS detection, run default nmap scripts
 nmap -A -oA nmap <targetip>	
 
+# vuln script
+nmap -sV --script=vulscan/vulscan.nse
+
 # Scan more deeply, scan all 65535 ports on $targetip with a full connect scan
 nmap -v -sT <targetip> -p- 
 
@@ -17,7 +20,9 @@ nmap -sT -sV -A -O -v -p 1–65535 <targetip>
 nmap -sV -sC -v -oA output <targetip>
 nmap -p- -v <targetip>
 
-
+# Common scripts
+/usr/share/nmap/scripts/ssh*
+/usr/share/nmap/scripts/smb*
 ------------------------
 
 SMB
@@ -65,6 +70,14 @@ rpcclient> queryuser john
 
 # scan for vulnerabilities with nmap
 nmap --script "vuln" <targetip> -p139,445
+
+------------------------
+SSH - DNS Zone Transfer check
+# Check port 51 is open or not and then use
+dig axfr smasher.htb @10.10.10.135
+
+#github
+https://ghostphisher.github.io/smasher2
 
 ------------------------
 
