@@ -78,8 +78,8 @@ photoalbum.php?id=1 order by 8
 
 # wordpress
 wpscan --url http://.... --log
-wpscan --url http://... --enumerate u --log
-wpscan --url http://<targetip> --wordlist wordlist.txt --username example_username
+wpscan --url http://... --enumerate u,vp,ap
+wpscan --url http://<targetip> --passwords wordlist.txt --usernames example_username
 http://....../wp-admin
 http://...../wp-content/uploads/2017/10/file.png
 
